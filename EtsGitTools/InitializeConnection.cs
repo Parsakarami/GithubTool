@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using EtsGitTools.Helpers;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,23 +28,22 @@ namespace EtsGitTools
         {
             if (File.Exists(LoginInfoFilePath))
             {
-                //Fill the form
                 try
                 {
-                    var json = File.ReadAllText(LoginInfoFilePath);
+                    var encryptedText = File.ReadAllText(LoginInfoFilePath);
+                    var json = StringEncryption.Decrypt(encryptedText);
                     var userInfo = JsonConvert.DeserializeObject<UserInfo>(json);
                     FillForm(userInfo);
                 }
                 catch
                 {
-                    //log the error
+                    File.Delete(LoginInfoFilePath);
                 }
             }
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            //Validate inputs
             bool isAuthenticated = ValidateToken(TokenTextBox.Text);
             if (isAuthenticated)
             {
@@ -92,7 +92,8 @@ namespace EtsGitTools
             using (FileStream configFileStream = new FileStream(LoginInfoFilePath, FileMode.Create))
             {
                 var json = JsonConvert.SerializeObject(UserHelper.User);
-                var contentBytes = Encoding.UTF8.GetBytes(json);
+                var encryptedText = StringEncryption.Encrypt(json);
+                var contentBytes = Encoding.UTF8.GetBytes(encryptedText);
                 configFileStream.Write(contentBytes, 0, contentBytes.Length);
             }
         }
