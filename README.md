@@ -6,7 +6,8 @@ The main page of the tool is shown in the following image.
 <br/><br/>
 <img src="/Screenshots/ETSGitTool.png"/>
 <br/><br/>
-To use the tool, you must log in using the GitHub account information. This information includes the GitHub username, password, and personal access token. These are used to access the GitHub APIs. To get your access token, you can follow the steps in this link: <br/>
+To use the tool, you must log in using the GitHub account information. This information includes the GitHub username, password, and personal access token. These are used to access the GitHub APIs. To get your access token, you can follow the steps in this link: 
+<br/>
 https://docs.github.com/en/enterprise-server@3.4/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 <br/><br/>
 <img src="/Screenshots/ETSGitToolLoginPage.png"/>
