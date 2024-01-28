@@ -1,5 +1,5 @@
 # 🔍 GithubTool
-This tool is an integration tool for the GitHub API with SonarCloud. The tool lets users search over GitHub repositories using different criteria.
+This tool serves as an integration tool connecting the GitHub API with SonarCloud. It empowers users to explore GitHub repositories through various criteria, providing a versatile means to search and analyze code repositories.
 
 # Screenshots
 The main page of the tool is shown in the following image.
